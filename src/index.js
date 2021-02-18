@@ -18,7 +18,7 @@ function displayWeather(response) {
     humidity: response.main.humidity,
     weather_title: response.weather[0].main,
     weather_desc: d.charAt(0).toUpperCase() + d.slice(1),
-    icon: `https://openweathermap.org/img/wn/${response.weather[0].icon}@4x.png`,
+    icon: `https://openweathermap.org/img/wn/${response.weather[0].icon}@4x.png?appid=04d4d495e39f2311c4acd1148b6e2130`,
   };
   appendElement('h2', 'weather-container', weather.city);
   appendElement('img', 'weather-container', null, [['src', weather.icon]]);
