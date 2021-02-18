@@ -1,0 +1,37 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  input {
+    width: 50%;
+    padding: 5px;
+  }
+}
+
+.loading,
+.error,
+h2 {
+  display: flex;
+  justify-content: center;
+}
+
+.error {
+  text-transform: capitalize;
+  color: red;
+}
+
+span {
+  margin: 0 5vw;
+}
+
+.weather-container {
+  padding: 0 50px;
+}
+
+body {
+  background-image: radial-gradient(lightyellow, lightblue);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 100vh;
+}
