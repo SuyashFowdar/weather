@@ -11,7 +11,8 @@ form {
 
 .loading,
 .error,
-h2 {
+h2,
+h1 {
   display: flex;
   justify-content: center;
 }
@@ -34,4 +35,11 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   height: 100vh;
+  box-sizing: border-box;
+  margin: 0;
+  display: flex;
+}
+
+.content {
+  width: 100%;
 }
