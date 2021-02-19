@@ -1,4 +1,4 @@
-function appendElement(type, parent, content, attr, cb) {
+const el = (type, parent, content, attr, cb) => {
   const node = document.createElement(type);
   if (attr) {
     for (let i = 0; i < attr.length; i += 1) {
@@ -10,6 +10,6 @@ function appendElement(type, parent, content, attr, cb) {
   if (cb) {
     cb(node);
   }
-}
+};
 
-export default appendElement;
+export default el;
