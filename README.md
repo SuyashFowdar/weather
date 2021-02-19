@@ -11,7 +11,7 @@
 A simple JS Project for fetching weather data for specific cities.
 
 ## Setup
-- Clone the project by running `git clone https://github.com/krishnzzz/todo-list.git` on terminal or CMD
+- Clone the project by running `git clone https://github.com/krishnzzz/weather.git` on terminal or CMD
 - Run terminal or CMD from the project directory.
 - Run `npm install` if linters are required.
 - Run index.html in your Web Browser.
@@ -28,7 +28,7 @@ A simple JS Project for fetching weather data for specific cities.
 
 ## Demo Link
 
-https://krishnzzz.github.io/todo-list/
+https://krishnzzz.github.io/weather/
 
 ## Contributing
 
