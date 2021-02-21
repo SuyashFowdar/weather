@@ -13,8 +13,10 @@ A simple JS Project for fetching weather data for specific cities.
 ## Setup
 - Clone the project by running `git clone https://github.com/krishnzzz/weather.git` on terminal or CMD
 - Run terminal or CMD from the project directory.
-- Run `npm install` if linters are required.
-- Run index.html in your Web Browser.
+- Run `index.html` from dist folder in your Web Browser.
+- If further changes are required in the src folder, run `npm install` if to install all required packages.
+- Then, run `npm run dev` in terminal or CMD from the project directory.
+- For tests, run `npx jest`.
 
 ## Built With
 

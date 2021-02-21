@@ -3,18 +3,6 @@ import el from './library';
 let tempSymbol;
 let weather;
 
-const displayWeather = () => {
-  document.getElementById('weather-container').innerHTML = '';
-  el('h2', 'weather-container', weather.city);
-  el('img', 'weather-container', null, [['src', weather.icon]]);
-  el('h3', 'weather-container', weather.weather_title);
-  el('div', 'weather-container', `Temperature: ${weather.d_temp}°${tempSymbol}`);
-  el('p', 'weather-container', `Today: ${weather.weather_desc} and it feels like ${weather.d_temp_feel}°${tempSymbol}`);
-  el('span', 'weather-container', `Min Temp: ${weather.d_temp_min}°${tempSymbol}`);
-  el('span', 'weather-container', `Max Temp: ${weather.d_temp_max}°${tempSymbol}`);
-  el('span', 'weather-container', `Humidity: ${weather.humidity}%`);
-};
-
 const toF = (temp) => ((temp * (9 / 5)) + 32).toFixed(0);
 
 const useSymbol = (symbol) => {
@@ -31,8 +19,20 @@ const useSymbol = (symbol) => {
       weather.d_temp_min = weather.temp_min.toFixed(0);
       weather.d_temp_max = weather.temp_max.toFixed(0);
     }
-    displayWeather();
   }
+};
+
+const displayWeather = (symbol) => {
+  useSymbol(symbol || 'C');
+  document.getElementById('weather-container').innerHTML = '';
+  el('h2', 'weather-container', weather.city);
+  el('img', 'weather-container', null, [['src', weather.icon]]);
+  el('h3', 'weather-container', weather.weather_title);
+  el('div', 'weather-container', `Temperature: ${weather.d_temp}°${tempSymbol}`);
+  el('p', 'weather-container', `Today: ${weather.weather_desc} and it feels like ${weather.d_temp_feel}°${tempSymbol}`);
+  el('span', 'weather-container', `Min Temp: ${weather.d_temp_min}°${tempSymbol}`);
+  el('span', 'weather-container', `Max Temp: ${weather.d_temp_max}°${tempSymbol}`);
+  el('span', 'weather-container', `Humidity: ${weather.humidity}%`);
 };
 
 const loadWeather = (response) => {
@@ -52,7 +52,7 @@ const loadWeather = (response) => {
     weather_desc: d.charAt(0).toUpperCase() + d.slice(1),
     icon: `https://openweathermap.org/img/wn/${response.weather[0].icon}@4x.png?appid=04d4d495e39f2311c4acd1148b6e2130`,
   };
-  useSymbol('C');
+  displayWeather();
 };
 
 const getWeather = (city) => {
@@ -83,8 +83,8 @@ el('input', 'city-form', null, [['type', 'text'], ['name', 'city'], ['placeholde
 el('div', 'content', null, [['id', 'weather-container'], ['class', 'weather-container']]);
 getWeather('london');
 el('button', 'content', 'Use °C', null, (node) => {
-  node.addEventListener('click', () => { useSymbol('C'); });
+  node.addEventListener('click', () => { displayWeather('C'); });
 });
 el('button', 'content', 'Use °F', null, (node) => {
-  node.addEventListener('click', () => { useSymbol('F'); });
+  node.addEventListener('click', () => { displayWeather('F'); });
 });
